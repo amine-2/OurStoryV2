@@ -1,8 +1,10 @@
-import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import * as SystemUI from "expo-system-ui";
 import { useRef, useState } from "react";
+import RedPulseGradient from "../../components/RedPulseGradient";
+
+
 import {
   Dimensions,
   FlatList,
@@ -62,12 +64,7 @@ export default function Onboarding() {
   }).current;
 
   return (
-    <LinearGradient
-      colors={["#450920", "#C70039", "#FF6F61"]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={{ flex: 1, paddingVertical: 40 }}
-    >
+    <RedPulseGradient>
       <FlatList
         ref={flatListRef}
         contentContainerStyle={{ flexGrow: 1 }}
@@ -129,6 +126,6 @@ export default function Onboarding() {
         </TouchableOpacity>
       </View>
       <StatusBar style="dark" translucent backgroundColor="transparent" />
-    </LinearGradient>
+    </RedPulseGradient>
   );
 }
