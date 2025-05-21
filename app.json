@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "OurStory",
-    "slug": "OurStory",
+    "name": "OurStoryV2",
+    "slug": "OurStoryV2",
+    
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "ourstory",
+    "scheme": "ourstoryV2",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {

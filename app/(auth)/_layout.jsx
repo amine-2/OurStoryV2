@@ -5,6 +5,8 @@ export default function AuthLayout() {
   <Stack screenOptions={{ headerShown: false }}>
     <Stack.Screen name="biometric-unlock" />
     <Stack.Screen name="profile-setup" />
+    <Stack.Screen name="EditProfile" />
+    
   </Stack>
   ) 
 }

@@ -1,5 +1,6 @@
 import * as LocalAuthentication from "expo-local-authentication";
 import { useRouter } from "expo-router";
+import * as SecureStore from 'expo-secure-store';
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -16,17 +17,13 @@ import {
 } from "react-native";
 import RedPulseGradient from "../../components/RedPulseGradient";
 
-
-
-
 export default function BiometricUnlock() {
-
-
   const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [supported, setSupported] = useState(false);
   const [checked, setChecked] = useState(false);
   const router = useRouter();
   const bounceAnim = useRef(new Animated.Value(0)).current;
+
 
   useEffect(() => {
     Animated.loop(
@@ -69,7 +66,13 @@ export default function BiometricUnlock() {
 
     if (result.success) {
       // Navigate to Profile Setup on success
-      router.push("/(auth)/profile-setup");
+      const saved = await SecureStore.getItemAsync("myProfile");
+      if (saved) {
+        router.replace("/(chat)");
+      } else {
+        router.replace("/(auth)/profile-setup");
+        alert("Success");
+      }
     } else {
       Alert.alert("Authentication failed", "Please try again.");
     }
@@ -87,7 +90,7 @@ export default function BiometricUnlock() {
     <RedPulseGradient>
       <View className=" flex flex-1 justify-center items-center h-full p-4">
         <Text className="text-5xl obold h-[30%] text-white  text-center  ">
-          Welcome Back Baby
+          {supported ? "Welcome Back King" : "Lets Start King"}
         </Text>
 
         <View className=" justify-center items-center h-[30%] mt-10   ">

@@ -27,11 +27,11 @@ export default function RedPulseGradient({ children, style }) {
     const midColor = interpolateColor(
       progress.value,
       [0, 1],
-      ["#C70039", "#FF3B3F"] // subtle red pulse
+      ["#1a1a1a", "#8f00ff"] // subtle red pulse
     );
 
     return {
-      colors: ["#FF9A8B", midColor, "#FF99AC"],
+      colors: ['#1a1a1a',midColor, '#8f00ff'],
     };
   });
 
